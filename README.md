@@ -15,7 +15,7 @@ ASK_AMT—Funding amount requested<br>
 IS_SUCCESSFUL—Was the money used effectively<br>
 </b><br>
 <br>
-<b>Preprocess the data</b><br>
+<b>Step 1: Preprocess the data</b><br>
 Using Pandas and the Scikit-Learn’s StandardScaler(), I preprocessed the dataset in order to compile, train, and evaluate the neural network model later.<br>
 <br>
 [x] Drop the EIN and NAME columns.<br>
@@ -25,7 +25,7 @@ Using Pandas and the Scikit-Learn’s StandardScaler(), I preprocessed the datas
 [x] Use pd.get_dummies() to encode categorical variables.<br>
 <br>
 <br>
-<b>Compile, Train, and Evaluate the Model</b><br>
+<b>Step 2: Compile, Train, and Evaluate the Model</b><br>
 Using TensorFlow, I designed a neural network, or deep learning model, to create a binary classification model that can predict if an Alphabet Soup–funded organization will be successful based on the features in the dataset.<br>
 <br>
 [x] Create a neural network model by assigning the number of input features and nodes for each layer using Tensorflow Keras.<br>
@@ -39,7 +39,7 @@ Using TensorFlow, I designed a neural network, or deep learning model, to create
 [x] Save and export results to an HDF5 file<br>
 <br>
 <br>
-<b>Optimize the Model</b><br>
+<b>Step 3: Optimize the Model</b><br>
 Using TensorFlow, I optimized the model in order to achieve a target predictive accuracy higher than 75%.<br>
 <br>
 <i>Adjust the input data to ensure that there are no variables or outliers that are causing confusion in the model, such as:</i><br>
@@ -51,10 +51,11 @@ Using TensorFlow, I optimized the model in order to achieve a target predictive 
 [x] Adding more hidden layers.<br>
 [x] Using different activation functions for the hidden layers.<br>
 [x] Adding or reducing the number of epochs to the training regimen.<br>
-<br>
-[x] Design a neural network model, taking into account any modifications that will optimize the model to achieve higher than 75% accuracy.<br>
-<br>
 
-<h1>Overview of the analysis:</h1>
-
-<b>[INSERT ANALYSIS HERE]</b>
+<h1>Analysis Overview:</h1>
+<b>Data Processing</b><br>
+Application Type and Classification are the targets for the model. The variables that are considered to be the features are the inputs and outputs. Inputs: Application Type, Affiliation, Classification, Use Case, Organization, Status, Income Amount, Special Considerations, and Ask Amount. Outputs: Effective Use of Money (show in the IS SUCCESSFUL column - 0 if not successful, 1 if successful). Non-beneficial items that were removed from the data were EIN and Name.
+<br>
+<br>
+<b>Compiling, Training, and Evaluating the Model</b><br>
+Two additional layers were added along with the output layer. Layer 1 was set to 80 neurons and Layer 2 at 30. The activation functions used were Sigmoid and Rectified Linear Unit because they are both monotonic functions. I was not able to achieve the target model performance of at least 75%. My result showed about 72% accuracy. To increase the model performance, I optimized the model by dropping EIN, Status, and Special Considerations columns and by creating more bins for rare occurrences in columns like Name and Application Type.
